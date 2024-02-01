@@ -1,0 +1,92 @@
+<!-- this is a view demonstrating the capabilities of generic/object_detail.thml -->
+{% extends 'generic/object_retrieve.html' %}
+{% load helpers %}
+
+{% block extra_breadcrumb %}
+        <li>
+            <a href="{% url 'plugins:nautobot_graph:nodetype_list' %}?pk={{ object.pk }}">{{ object.pk }} (Breadcrumbs)</a>
+        </li>
+{% endblock extra_breadcrumb %}
+
+{% block extra_buttons %}
+        <a onClick="alert('I am from the detail view template.')" class="btn btn-success">
+            <span class="mdi mdi-exclamation-thick" aria-hidden="true"></span> Extra Buttons go here
+        </a>
+{% endblock extra_buttons %}
+
+{% block panel_buttons %}
+        <a onClick="alert('I am from the detail view template.')" class="btn btn-primary">
+            <span class="mdi mdi-help" aria-hidden="true"></span> Panel Buttons go here
+        </a>
+        <a onClick="alert('I am from the detail view template.')" class="btn btn-primary">
+            <span class="mdi mdi-help" aria-hidden="true"></span> Another Panel Button
+        </a>
+{% endblock panel_buttons %}
+
+{% block content_left_page %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Node Type Model</strong>
+            </div>
+
+            <table class="table table-hover panel-body attr-table">
+                <tr>
+                    <td>Name</td>
+                    <td><span>{{ object.name }}</span></td>
+                </tr>
+                
+                 <tr>
+                    <td>Data Type</td>
+                    <td><span>{{ object.data_type }}</span></td>
+                </tr>
+                <tr>
+                    <td>Node Type</td>
+                    <td><span>{{ object.node_type }}</span></td>
+                </tr>
+                
+            </table>
+        </div>
+{% endblock content_left_page %}
+
+ {% block content_right_page %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Node Type Detail</strong>
+            </div>
+
+            <table class="table table-hover panel-body attr-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><span>{{ object.node_type.name}}</span></td>
+                    <td><span> {{object.node_type.description}}</span></td>
+                </tr>
+            </table>
+        </div>
+{% endblock content_right_page %} 
+
+{% block content_full_width_page %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>View Template Full Width Page Content</strong>
+            </div>
+
+            <table class="table table-hover panel-body attr-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Data Type</th>
+                    <th>Node Type</th>
+                </tr>
+                <tr>
+                    <td>{{object.pk}}</td>
+                    <td>{{object.name}}</td>
+                    <td>{{object.data_type}}</td>
+                    <td>{{object.node_type}}</td>
+                    
+                </tr>
+            </table>
+        </div>
+{% endblock content_full_width_page %}

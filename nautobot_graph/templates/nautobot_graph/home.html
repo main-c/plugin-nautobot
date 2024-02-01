@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nautobot Graph Plugin{% endblock %}
+
+{% block header %}
+    <h1>Nautobot Graph Plugin</h1>
+{% endblock header %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Graph Schema Management</strong></div>
+                <div class="panel-body">
+                    <p>
+                        Welcome to the Nautobot Graph Plugin! This plugin allows you to manage the schema of a graphical database.
+                    </p>
+                    <p>
+                        You can create, modify, and delete node types, node properties, labels, relationship types, and relationship properties.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Data Exploration</strong></div>
+                <div class="panel-body">
+                    <p>
+                        Explore the data stored in the graph database using the provided search functionality.
+                    </p>
+                    {% comment %} <p>
+                        Additionally, you can visualize and analyze the graph data through interactive charts and graphs.
+                    </p> {% endcomment %}
+                    <img src="{% static 'img/nautobot_icon_192x192.png' %}" alt="Nautobot Icon">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Advanced Features</strong></div>
+                <div class="panel-body">
+                    <p>
+                        This page serves as a dashboard for the Nautobot Graph Plugin, providing users with a centralized location
+                        to manage and explore graph-related functionalities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

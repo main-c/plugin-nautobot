@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "nautobot_graph"
+version = "1.0.0"
+description = "A Django plugin for Nautobot that allows users to modify the schema of a graphical database through a web interface.The plugin supports managing node types, node properties, node labels, relationship types, and relationship properties. Data is stored in a PostgreSQL relational database. The plugin provides essential web operations, including creation, modification, deletion, and display of node and relationship types."
+authors = ["main-c <yannikkwc@gmail.com>"]
+license = "Apache-2.0"
+packages = [
+    {include = "nautobot_graph"}
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.12"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"
+
+[tool.ruff.lint]
+select = [
+    "DJ",  # flake8-django
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "I",  # isort
+    "PIE",  # flake8-pie
+    "RUF",  # ruff itself
+    "S",  # flake8-bandit
+    "W",  # pycodestyle
+]
+ignore = [
+    "E501",  # pycodestyle: line-too-long
+    "PIE808",  # unnecessary-range-start
+    "RUF012",  # mutable-class-default - see https://github.com/astral-sh/ruff/issues/5243
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+order-by-type = false
+section-order = ["future", "standard-library", "third-party", "nautobot", "first-party", "local-folder"]
+
+[tool.ruff.lint.isort.sections]
+"nautobot" = ["nautobot"]
